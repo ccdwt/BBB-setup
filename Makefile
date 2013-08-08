@@ -1,5 +1,8 @@
 
-all: ssh_key ip WindTurbine
+all: opkg-update ssh_key ip WindTurbine
+
+opkg-update:
+	opkg update
 
 ip: ip.sh
 	@echo "setting up static IP";
