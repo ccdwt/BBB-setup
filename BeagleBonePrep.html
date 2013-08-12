@@ -1,0 +1,49 @@
+<html>
+<title> BeagleBone Prep </title>
+<body>
+To prep the BeagleBone black from factory settings, and install all the software in ccdwt/WindTurbine i have created a helper repo called ccdwt/BBB-setup. In order to use this all you must do, is:<br />
+<br />
+<ol>
+<li>simply connect the BeagleBone Black(BBB) to your computer with the usb cable</li>
+<br />
+<li>Connect an ethernet cable to the BBB so it has internet</li>
+<br />
+<li>Install drivers from <a href="http://beagleboard.org/Getting%20Started#step2">here</a>. ( only strictly necessary on windows )</li>
+<br />
+<li>ssh to the BBB over the usb.<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;address: 192.168.7.2<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;username: root<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;password: password<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(if you do not have an ssh client, i recommend <a href="https://chrome.google.com/webstore/detail/secure-shell/pnhechapfaindjhompbnflcldabbghjo?hl=en">this one</a>. It runs in chrome on all platforms.)</li>
+<br />
+<li>navigate to /usr/src: eg<br />
+<pre><span style="background-color: #444444;"> # cd /usr/src </span></pre>
+</li>
+<div>
+<br />
+<br />
+<li>clone the git repository: eg
+<pre><span style="background-color: #444444;"> # git clone http://github.com/ccdwt/BBB-setup.git </span></pre>
+</li>
+</div>
+<li>go into the newly created directory BBB-setup and run make
+<pre><span style="background-color: #444444;"> # cd BBB-setup </span>
+<span style="background-color: #444444;"> # make </span></pre>
+</li>
+</ol>
+you will be prompted a few times for yes/no or some configuration. In each case either choose yes, y, or just enter to choose the default. At the end of the installation, (which takes approximately 35 minutes), you must either run <span style="background-color: #444444;">&nbsp;/etc/init.d/monit start&nbsp;</span>&lt;&nbsp;in order to start all the various monitor processes. The<br />
+<div>
+monit console can be reached <a href="http://www.blogger.com/192.168.7.2:2812">here</a>&nbsp;if you are connected to usb, or <a href="http://153.106.112.42/">here</a> if it is deployed in the field.<br />
+<br />
+The login credentials for the monit interface are<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; username: admin<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; password: monit<br />
+<br />
+<br />
+Finally, if you wish to change the root password from <span style="background-color: #0b5394;">password</span>, run the passwd command in the console like so:<br />
+<pre> <span style="background-color: #444444;"> # passwd </span></pre>
+<pre><span style="background-color: #999999;">
+</span></pre>
+&nbsp; you will then be prompted to enter a new root password twice. No characters will show up on the screen as you type the password, this is not a mistake, it is just the terminal's way of keeping the password from being seen.&nbsp;</div>
+</body>
+</html>
