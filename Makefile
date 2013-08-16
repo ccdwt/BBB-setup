@@ -17,6 +17,6 @@ ssh_key: id_rsa id_rsa.pub
 	@echo "done.";
 
 WindTurbine: 
-	cd /usr/src; git clone git@github.com:ccdwt/WindTurbine.git
+	cd /usr/src; GIT_SSH="./ssh.sh" git clone git@github.com:ccdwt/WindTurbine.git
 	make install -C /usr/src/WindTurbine
 
