@@ -1,4 +1,4 @@
-
+PWD=$(shell pwd)
 all: opkg-update ssh_key ip WindTurbine
 
 opkg-update: ip
@@ -17,6 +17,6 @@ ssh_key: id_rsa id_rsa.pub
 	@echo "done.";
 
 WindTurbine: 
-	cd /usr/src; GIT_SSH="./ssh.sh" git clone git@github.com:ccdwt/WindTurbine.git
+	cd /usr/src; GIT_SSH="$(PWD)/ssh.sh" git clone git@github.com:ccdwt/WindTurbine.git
 	make install -C /usr/src/WindTurbine
 
